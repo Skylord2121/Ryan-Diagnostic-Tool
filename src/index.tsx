@@ -30,10 +30,11 @@ app.get('/', (c) => {
                 <div class="header-content">
                     <a href="/" class="logo">
                         <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
-                        <span>Executive Growth Diagnostic</span>
                     </a>
                     <nav>
-                        <a href="/questionnaire" class="btn btn-secondary">Take Assessment</a>
+                        <a href="/questionnaire" class="btn-nav">
+                            <i class="fas fa-clipboard-check"></i> Take Assessment
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -160,7 +161,61 @@ app.get('/', (c) => {
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <p>&copy; 2024 Executive Growth Diagnostic. Created by Ryan Joswick, Executive Coach & Advisor.</p>
+                <div class="footer-content">
+                    <!-- About Section -->
+                    <div class="footer-section">
+                        <img src="/static/logo.png" alt="Ryan Joswick" class="footer-logo">
+                        <p>
+                            Executive Coach & Advisor helping senior leaders break through growth barriers 
+                            and achieve sustainable results.
+                        </p>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="/questionnaire"><i class="fas fa-clipboard-check"></i> Take Assessment</a></li>
+                            <li><a href="#about"><i class="fas fa-info-circle"></i> About Ryan</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Services -->
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-user-tie"></i> Executive Coaching</a></li>
+                            <li><a href="#"><i class="fas fa-users"></i> Team Development</a></li>
+                            <li><a href="#"><i class="fas fa-chart-line"></i> Growth Strategy</a></li>
+                            <li><a href="#"><i class="fas fa-handshake"></i> Leadership Advisory</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Connect -->
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <p>Follow Ryan on social media for leadership insights and executive growth strategies.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:ryan@example.com" class="social-icon" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Ryan Joswick. All rights reserved. | Executive Coach & Advisor</p>
+                </div>
             </div>
         </footer>
 
@@ -225,8 +280,12 @@ app.get('/questionnaire', (c) => {
                 <div class="header-content">
                     <a href="/" class="logo">
                         <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
-                        <span>Executive Growth Diagnostic</span>
                     </a>
+                    <nav>
+                        <a href="/" class="btn-nav">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                    </nav>
                 </div>
             </div>
         </header>
