@@ -31,7 +31,12 @@ app.get('/', (c) => {
                     <a href="/" class="logo">
                         <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
                     </a>
-                    <nav>
+                    <nav class="header-nav">
+                        <div class="nav-links">
+                            <a href="#why" class="nav-link">Why This Matters</a>
+                            <a href="#how" class="nav-link">How It Works</a>
+                            <a href="#about" class="nav-link">About Ryan</a>
+                        </div>
                         <a href="/questionnaire" class="btn-nav">
                             <i class="fas fa-clipboard-check"></i> Take Assessment
                         </a>
@@ -44,7 +49,7 @@ app.get('/', (c) => {
         <section class="hero">
             <div class="container">
                 <div class="hero-content fade-in">
-                    <h1>Find out where you stand today</h1>
+                    <h1>Find Out Where You Stand Today</h1>
                     <p class="hero-subtext">
                         Every executive faces challenges. Some are clear. Others hide in plain sight. 
                         This tool helps you see what is working, what is not, and what to do about it.
@@ -57,7 +62,7 @@ app.get('/', (c) => {
         </section>
 
         <!-- Why This Matters Section -->
-        <section class="section section-white">
+        <section id="why" class="section section-white">
             <div class="container">
                 <div class="slide-up">
                     <h2 style="text-align: center; margin-bottom: 3rem;">Why This Matters</h2>
@@ -98,7 +103,7 @@ app.get('/', (c) => {
         </section>
 
         <!-- How It Works Section -->
-        <section class="section section-gray">
+        <section id="how" class="section section-gray">
             <div class="container">
                 <div class="slide-up">
                     <h2 style="text-align: center; margin-bottom: 3rem;">Simple and Actionable</h2>
@@ -139,7 +144,7 @@ app.get('/', (c) => {
         </section>
 
         <!-- About Ryan Section -->
-        <section class="section section-navy">
+        <section id="about" class="section section-navy">
             <div class="container">
                 <div class="slide-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
                     <h2 style="color: var(--white); margin-bottom: 2rem;">About Ryan Joswick</h2>
