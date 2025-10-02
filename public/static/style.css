@@ -403,20 +403,19 @@ p {
 }
 
 .header-content {
-  padding: 1rem 0 0.75rem;
-}
-
-.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  padding: 1.125rem 0;
+  gap: 3rem;
 }
 
 .header-nav {
   display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex: 1;
   justify-content: center;
-  padding-bottom: 0.5rem;
 }
 
 .nav-links {
@@ -426,14 +425,15 @@ p {
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   transition: all 0.3s ease;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
   position: relative;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -764,16 +764,21 @@ p {
     padding: 0 1.5rem;
   }
   
+  .header-content {
+    gap: 1rem;
+  }
+  
   .logo-image {
     height: 26px;
   }
   
-  .nav-links {
-    gap: 1.5rem;
+  .header-nav {
+    display: none;
   }
   
-  .nav-link {
-    font-size: 0.8rem;
+  .btn-nav {
+    font-size: 0.8125rem;
+    padding: 0.5rem 1rem;
   }
   
   .hero {

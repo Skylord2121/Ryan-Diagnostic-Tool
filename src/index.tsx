@@ -28,14 +28,9 @@ app.get('/', (c) => {
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    <div class="header-top">
-                        <a href="/" class="logo">
-                            <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
-                        </a>
-                        <a href="/questionnaire" class="btn-nav">
-                            <i class="fas fa-clipboard-check"></i> Take Assessment
-                        </a>
-                    </div>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
+                    </a>
                     <nav class="header-nav">
                         <div class="nav-links">
                             <a href="#why" class="nav-link">Why This Matters</a>
@@ -43,6 +38,9 @@ app.get('/', (c) => {
                             <a href="#about" class="nav-link">About Ryan</a>
                         </div>
                     </nav>
+                    <a href="/questionnaire" class="btn-nav">
+                        <i class="fas fa-clipboard-check"></i> Take Assessment
+                    </a>
                 </div>
             </div>
         </header>
