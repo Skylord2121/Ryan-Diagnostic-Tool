@@ -270,66 +270,16 @@ function updateProgress() {
     }
 }
 
-async function generateReport() {
-    const generateBtn = document.getElementById('generate-report-btn');
-    generateBtn.disabled = true;
-    generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating Report...';
-    
-    try {
-        // Calculate scores by category
-        const scores = calculateScores();
-        
-        // Prepare submission data
-        const submissionData = {
-            ...responses,
-            scores: scores,
-            timestamp: new Date().toISOString()
-        };
-        
-        // Submit to API
-        const response = await fetch('/api/submit-questionnaire', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(submissionData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            // Update UI to show success
-            generateBtn.innerHTML = '<i class="fas fa-check-circle"></i> Report Generated!';
-            generateBtn.classList.remove('btn-gold');
-            generateBtn.classList.add('btn-primary');
-            
-            // Show success message
-            const successMsg = document.createElement('div');
-            successMsg.innerHTML = `
-                <div style="margin-top: 2rem; padding: 1.5rem; background-color: var(--gray-light); border-radius: 8px; border-left: 4px solid var(--blue-accent);">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--navy-primary);">
-                        <i class="fas fa-envelope"></i> Report Sent Successfully!
-                    </h4>
-                    <p style="margin-bottom: 1rem; color: var(--gray-text);">
-                        Your personalized Executive Growth Diagnostic report has been sent to <strong>${responses.email}</strong>
-                    </p>
-                    <p style="margin-bottom: 0; color: var(--gray-text); font-size: 0.9rem;">
-                        Report ID: ${result.reportId}
-                    </p>
-                </div>
-            `;
-            generateBtn.parentNode.appendChild(successMsg);
-        } else {
-            throw new Error(result.message || 'Failed to generate report');
-        }
-    } catch (error) {
-        console.error('Error generating report:', error);
-        generateBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please Try Again';
-        generateBtn.disabled = false;
-        generateBtn.classList.add('btn-secondary');
-        
-        alert('There was an error generating your report. Please try again or contact support.');
-    }
+// This function will be called by the PDF generator
+function getAssessmentData() {
+    return {
+        name: responses.name,
+        email: responses.email,
+        role: responses.role,
+        scores: calculateScores(),
+        responses: responses,
+        timestamp: new Date().toISOString()
+    };
 }
 
 function calculateScores() {

@@ -28,7 +28,10 @@ app.get('/', (c) => {
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    <a href="/" class="logo">Executive Growth Diagnostic</a>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
+                        <span>Executive Growth Diagnostic</span>
+                    </a>
                     <nav>
                         <a href="/questionnaire" class="btn btn-secondary">Take Assessment</a>
                     </nav>
@@ -60,7 +63,9 @@ app.get('/', (c) => {
                     
                     <div class="grid grid-2" style="margin-bottom: 3rem;">
                         <div class="card">
-                            <i class="fas fa-eye" style="font-size: 2rem; color: var(--blue-accent); margin-bottom: 1rem;"></i>
+                            <div class="card-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
                             <h3>Gain Clarity</h3>
                             <ul class="features-list">
                                 <li>See where your time and energy are really going</li>
@@ -70,7 +75,9 @@ app.get('/', (c) => {
                         </div>
                         
                         <div class="card">
-                            <i class="fas fa-rocket" style="font-size: 2rem; color: var(--blue-accent); margin-bottom: 1rem;"></i>
+                            <div class="card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
                             <h3>Take Action</h3>
                             <ul class="features-list">
                                 <li>Walk away with simple actions you can implement immediately</li>
@@ -216,15 +223,18 @@ app.get('/questionnaire', (c) => {
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    <a href="/" class="logo">Executive Growth Diagnostic</a>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
+                        <span>Executive Growth Diagnostic</span>
+                    </a>
                 </div>
             </div>
         </header>
 
         <!-- Questionnaire Section -->
-        <section class="section section-white">
+        <section class="section section-white" style="padding: 4rem 0;">
             <div class="container">
-                <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="max-width: 900px; margin: 0 auto;">
                     <div id="questionnaire-app">
                         <!-- Progress Bar -->
                         <div class="progress-bar">
@@ -232,16 +242,16 @@ app.get('/questionnaire', (c) => {
                         </div>
                         
                         <div id="question-counter">
-                            <p style="text-align: center; color: var(--gray-text); margin-bottom: 2rem;">
+                            <p>
                                 Question <span id="current-question">1</span> of <span id="total-questions">25</span>
                             </p>
                         </div>
 
                         <!-- Contact Information Step -->
                         <div id="step-0" class="question-step active">
-                            <h2 style="margin-bottom: 2rem;">Let's Get Started</h2>
+                            <h2 style="margin-bottom: 1.5rem;">Let's Get Started</h2>
                             <p style="margin-bottom: 2rem; color: var(--gray-text);">
-                                First, we need your contact information to send you the personalized report.
+                                Enter your information to receive your personalized diagnostic report instantly.
                             </p>
                             
                             <div class="form-group">
@@ -306,14 +316,14 @@ app.get('/questionnaire', (c) => {
                         <!-- Results Step -->
                         <div id="step-results" class="question-step">
                             <div style="text-align: center;">
-                                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--blue-accent); margin-bottom: 2rem;"></i>
-                                <h2 style="margin-bottom: 2rem;">Assessment Complete!</h2>
-                                <p style="margin-bottom: 2rem; color: var(--gray-text);">
+                                <i class="fas fa-check-circle success-icon" style="font-size: 5rem; color: var(--blue-accent); margin-bottom: 2rem;"></i>
+                                <h2 style="margin-bottom: 1.5rem;">Assessment Complete!</h2>
+                                <p style="margin-bottom: 3rem; color: var(--gray-text); font-size: 1.25rem;">
                                     Thank you for completing the Executive Growth Diagnostic. 
-                                    Your personalized report is being generated and will be sent to your email shortly.
+                                    Your personalized 4-page report is ready to download instantly.
                                 </p>
-                                <button class="btn btn-gold" onclick="generateReport()" id="generate-report-btn">
-                                    <i class="fas fa-file-pdf"></i> Generate My Report
+                                <button class="btn btn-gold" onclick="generateAndDownloadReport()" id="generate-report-btn">
+                                    <i class="fas fa-download"></i> Download My Report
                                 </button>
                             </div>
                         </div>
@@ -322,7 +332,9 @@ app.get('/questionnaire', (c) => {
             </div>
         </section>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="/static/questionnaire.js"></script>
+        <script src="/static/pdf-generator.js"></script>
     </body>
     </html>
   `)
