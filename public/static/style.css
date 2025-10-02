@@ -403,35 +403,37 @@ p {
 }
 
 .header-content {
+  padding: 1rem 0 0.75rem;
+}
+
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  gap: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .header-nav {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex: 1;
-  justify-content: flex-end;
+  justify-content: center;
+  padding-bottom: 0.5rem;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 0.703rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   position: relative;
+  letter-spacing: 0.02em;
 }
 
 .nav-link::after {
@@ -465,7 +467,7 @@ p {
 }
 
 .logo-image {
-  height: 32px;
+  height: 24px;
   width: auto;
 }
 
@@ -762,12 +764,16 @@ p {
     padding: 0 1.5rem;
   }
   
-  .header-nav {
-    gap: 1rem;
+  .logo-image {
+    height: 20px;
   }
   
   .nav-links {
-    display: none;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.625rem;
   }
   
   .hero {

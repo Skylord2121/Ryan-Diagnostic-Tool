@@ -28,18 +28,20 @@ app.get('/', (c) => {
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    <a href="/" class="logo">
-                        <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
-                    </a>
+                    <div class="header-top">
+                        <a href="/" class="logo">
+                            <img src="/static/logo.png" alt="Ryan Joswick" class="logo-image">
+                        </a>
+                        <a href="/questionnaire" class="btn-nav">
+                            <i class="fas fa-clipboard-check"></i> Take Assessment
+                        </a>
+                    </div>
                     <nav class="header-nav">
                         <div class="nav-links">
                             <a href="#why" class="nav-link">Why This Matters</a>
                             <a href="#how" class="nav-link">How It Works</a>
                             <a href="#about" class="nav-link">About Ryan</a>
                         </div>
-                        <a href="/questionnaire" class="btn-nav">
-                            <i class="fas fa-clipboard-check"></i> Take Assessment
-                        </a>
                     </nav>
                 </div>
             </div>
