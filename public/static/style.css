@@ -428,8 +428,8 @@ p {
 .nav-link {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 0.703rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
   transition: all 0.3s ease;
   padding: 0.25rem 0;
   position: relative;
@@ -467,7 +467,7 @@ p {
 }
 
 .logo-image {
-  height: 24px;
+  height: 30px;
   width: auto;
 }
 
@@ -765,7 +765,7 @@ p {
   }
   
   .logo-image {
-    height: 20px;
+    height: 26px;
   }
   
   .nav-links {
@@ -773,7 +773,7 @@ p {
   }
   
   .nav-link {
-    font-size: 0.625rem;
+    font-size: 0.8rem;
   }
   
   .hero {
