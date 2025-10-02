@@ -296,7 +296,7 @@ p {
 /* Bento Grid Layout */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -337,22 +337,22 @@ p {
 }
 
 .bento-large {
-  grid-column: span 3;
-  grid-row: span 2;
+  grid-column: span 1;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
 }
 
 .bento-medium {
-  grid-column: span 3;
+  grid-column: span 1;
 }
 
 .bento-small {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .bento-accent {
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  background: linear-gradient(135deg, var(--blue-accent) 0%, var(--blue-light) 100%);
   color: var(--white);
+  box-shadow: 0 8px 25px var(--blue-glow);
 }
 
 .bento-accent h3 {
@@ -360,7 +360,7 @@ p {
 }
 
 .bento-accent p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .bento-icon {
@@ -392,31 +392,22 @@ p {
 }
 
 .bento-accent .bento-icon-small {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
 }
 
 .bento-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--navy-primary);
 }
 
-.bento-small h3 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-
 .bento-card p {
   color: var(--gray-text);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.7;
   margin: 0;
-}
-
-.bento-small p {
-  font-size: 0.9375rem;
 }
 
 .bento-badge {
@@ -437,20 +428,13 @@ p {
 /* Responsive Bento Grid */
 @media (max-width: 1024px) {
   .bento-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .bento-large {
-    grid-column: span 4;
-    grid-row: span 1;
-  }
-  
-  .bento-medium {
-    grid-column: span 2;
-  }
-  
+  .bento-large,
+  .bento-medium,
   .bento-small {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 }
 
@@ -464,7 +448,6 @@ p {
   .bento-medium,
   .bento-small {
     grid-column: span 1;
-    grid-row: span 1;
   }
   
   .bento-card {
