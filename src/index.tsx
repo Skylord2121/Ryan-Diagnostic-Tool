@@ -65,35 +65,67 @@ app.get('/', (c) => {
         <section id="why" class="section section-white">
             <div class="container">
                 <div class="slide-up">
-                    <h2 style="text-align: center; margin-bottom: 3rem;">Why This Matters</h2>
+                    <h2 style="text-align: center; margin-bottom: 1rem;">Why This Matters</h2>
+                    <p style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem; font-size: 1.125rem;">
+                        Every executive faces challenges. This diagnostic helps you identify what's working, 
+                        what's not, and gives you a clear path forward.
+                    </p>
                     
-                    <div class="grid grid-2" style="margin-bottom: 3rem;">
-                        <div class="card">
-                            <div class="card-icon">
-                                <i class="fas fa-eye"></i>
+                    <div class="bento-grid">
+                        <!-- Large featured card -->
+                        <div class="bento-card bento-large">
+                            <div class="bento-icon">
+                                <i class="fas fa-chart-line"></i>
                             </div>
-                            <h3>Gain Clarity</h3>
-                            <ul class="features-list">
-                                <li>See where your time and energy are really going</li>
-                                <li>Identify blind spots that may be slowing you down</li>
-                                <li>Discover how aligned your team and strategy truly are</li>
-                            </ul>
+                            <h3>Gain Deep Clarity</h3>
+                            <p>Understand exactly where your time and energy are going, identify blind spots that may be slowing you down, and discover how aligned your team and strategy truly are.</p>
+                            <div class="bento-badge">Most Popular</div>
                         </div>
                         
-                        <div class="card">
-                            <div class="card-icon">
-                                <i class="fas fa-rocket"></i>
+                        <!-- Medium cards -->
+                        <div class="bento-card bento-medium">
+                            <div class="bento-icon">
+                                <i class="fas fa-bullseye"></i>
                             </div>
-                            <h3>Take Action</h3>
-                            <ul class="features-list">
-                                <li>Walk away with simple actions you can implement immediately</li>
-                                <li>Get a personalized report based on your specific answers</li>
-                                <li>Make faster, better decisions with clear insights</li>
-                            </ul>
+                            <h3>Actionable Insights</h3>
+                            <p>Walk away with specific, implementable actions based on your unique situation and challenges.</p>
+                        </div>
+                        
+                        <div class="bento-card bento-medium">
+                            <div class="bento-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h3>Personalized Report</h3>
+                            <p>Get a custom 4-page report with your scores, insights, and recommended next steps.</p>
+                        </div>
+                        
+                        <!-- Small cards -->
+                        <div class="bento-card bento-small">
+                            <div class="bento-icon-small">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>10 Minutes</h3>
+                            <p>Quick assessment, lasting impact</p>
+                        </div>
+                        
+                        <div class="bento-card bento-small">
+                            <div class="bento-icon-small">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h3>Instant Access</h3>
+                            <p>Download your report immediately</p>
+                        </div>
+                        
+                        <div class="bento-card bento-small bento-accent">
+                            <div class="bento-icon-small">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>Expert Guidance</h3>
+                            <p>Based on coaching 100+ executives</p>
                         </div>
                     </div>
                     
-                    <div style="text-align: center;">
+                    <div style="text-align: center; margin-top: 3rem;">
                         <a href="/questionnaire" class="btn btn-primary">
                             <i class="fas fa-arrow-right"></i> Begin the Assessment
                         </a>
