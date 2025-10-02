@@ -167,7 +167,7 @@ app.get('/', (c) => {
                     </div>
                     
                     <div style="text-align: center;">
-                        <a href="/questionnaire" class="btn btn-gold">
+                        <a href="/questionnaire" class="btn btn-primary">
                             <i class="fas fa-chart-line"></i> Start Now
                         </a>
                     </div>
@@ -201,9 +201,12 @@ app.get('/', (c) => {
                 <div class="footer-content">
                     <!-- About Section -->
                     <div class="footer-section">
-                        <img src="/static/logo.png" alt="Ryan Joswick" class="footer-logo">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <img src="/static/logo.png" alt="Ryan Joswick" class="footer-logo">
+                            <span style="font-weight: 600; font-size: 0.9375rem;">Executive Coach & Advisor</span>
+                        </div>
                         <p>
-                            Executive Coach & Advisor helping senior leaders break through growth barriers 
+                            Helping senior leaders break through growth barriers 
                             and achieve sustainable results.
                         </p>
                     </div>
