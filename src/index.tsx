@@ -46,7 +46,7 @@ app.get('/', (c) => {
         </header>
 
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" id="hero">
             <div class="container">
                 <div class="hero-content fade-in">
                     <h1>Find Out Where You Stand Today</h1>
@@ -214,7 +214,7 @@ app.get('/', (c) => {
                     <div class="footer-section">
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
                             <li><a href="/questionnaire"><i class="fas fa-clipboard-check"></i> Take Assessment</a></li>
                             <li><a href="#about"><i class="fas fa-info-circle"></i> About Ryan</a></li>
                         </ul>
@@ -224,10 +224,9 @@ app.get('/', (c) => {
                     <div class="footer-section">
                         <h4>Services</h4>
                         <ul>
-                            <li><a href="#"><i class="fas fa-user-tie"></i> Executive Coaching</a></li>
-                            <li><a href="#"><i class="fas fa-users"></i> Team Development</a></li>
-                            <li><a href="#"><i class="fas fa-chart-line"></i> Growth Strategy</a></li>
-                            <li><a href="#"><i class="fas fa-handshake"></i> Leadership Advisory</a></li>
+                            <li><a href="https://ryanjoswick.com/executive-coaching/" target="_blank" rel="noopener"><i class="fas fa-user-tie"></i> Executive Coaching</a></li>
+                            <li><a href="https://ryanjoswick.com/training-speaking/" target="_blank" rel="noopener"><i class="fas fa-microphone"></i> Training and Speaking</a></li>
+                            <li><a href="https://ryanjoswick.com/consulting-advising/" target="_blank" rel="noopener"><i class="fas fa-handshake"></i> Consulting and Advising</a></li>
                         </ul>
                     </div>
                     

@@ -222,6 +222,25 @@ function setupEventListeners() {
     document.getElementById('name').addEventListener('input', validateContactInfo);
     document.getElementById('email').addEventListener('input', validateContactInfo);
     
+    // Enter key functionality for contact form
+    document.getElementById('name').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('email').focus();
+        }
+    });
+    
+    document.getElementById('email').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (validateContactInfo()) {
+                nextStep();
+            } else {
+                alert('Please fill in all required fields with valid information.');
+            }
+        }
+    });
+    
     // Role selection
     document.querySelectorAll('input[name="role"]').forEach(radio => {
         radio.addEventListener('change', function() {
