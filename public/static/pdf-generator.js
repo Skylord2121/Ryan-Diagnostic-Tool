@@ -162,7 +162,7 @@ async function generateAndDownloadReport() {
                 Your personalized Executive Growth Diagnostic report has been downloaded to your device.
             </p>
             <p style="margin-bottom: 0; font-weight: 600;">
-                Ready to take the next step? Book your complimentary 15-minute session with Ryan.
+                Ready to take the next step? Book your complimentary 20-minute session with Ryan.
             </p>
         `;
         generateBtn.parentNode.appendChild(successMsg);
@@ -448,7 +448,7 @@ function generateNextStepsPage(doc, data, navy, navyMedium, gold, white, grayTex
     doc.setTextColor(...navyMedium);
     doc.text('Because you completed this diagnostic, you have exclusive access', pageWidth / 2, yPos, { align: 'center' });
     yPos += 10;
-    doc.text('to a complimentary 15-minute coaching call with Ryan.', pageWidth / 2, yPos, { align: 'center' });
+    doc.text('to a complimentary 20-minute coaching call with Ryan.', pageWidth / 2, yPos, { align: 'center' });
     
     yPos += 20;
     

@@ -14,7 +14,7 @@ const questionCategories = [
     {
         category: "Time & Energy",
         questions: [
-            "How much of your week is spent in meetings versus strategic work?",
+            "How much of your week is spent in meetings and email versus strategic work?",
             "How often do you protect time for long-term planning and big-picture thinking?",
             "How often do you feel you have energy left for high-value priorities at the end of the week?",
             "How often do you step away fully from work for family, friends, or personal recovery?"
@@ -33,7 +33,7 @@ const questionCategories = [
         category: "EQ & Blind Spots",
         questions: [
             "How composed are you under stress or conflict in high-stakes situations?",
-            "How often do you actively ask for feedback on your leadership or decisions?",
+            "How often do you actively ask for and receive feedback on your leadership or decisions?",
             "How aware are you of how your words and actions affect others?",
             "How effective are you at resolving conflict between team members or departments?"
         ]
@@ -108,11 +108,11 @@ const repeatabilityAnswers = [
 
 // Special answer options for specific questions
 const specialAnswers = {
-    "How much of your week is spent in meetings versus strategic work?": [
-        { value: 1, text: "80%+ meetings, very little strategic work" },
-        { value: 2, text: "60-80% meetings, some strategic work" },
-        { value: 3, text: "40-60% meetings, balanced approach" },
-        { value: 4, text: "Less than 40% meetings, mostly strategic work" }
+    "How much of your week is spent in meetings and email versus strategic work?": [
+        { value: 1, text: "80%+ meetings/email, very little strategic work" },
+        { value: 2, text: "60-80% meetings/email, some strategic work" },
+        { value: 3, text: "40-60% meetings/email, balanced approach" },
+        { value: 4, text: "Less than 40% meetings/email, mostly strategic work" }
     ],
     "What is the biggest obstacle in hitting revenue targets right now?": [
         { value: 1, text: "Major systemic issues (process, team, market)" },
