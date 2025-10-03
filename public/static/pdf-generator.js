@@ -12,12 +12,17 @@ async function sendToGoogleSheets(data) {
             formattedScores[category] = data.scores[category].percentage + '%';
         });
         
+        // Generate PDF identifier (timestamp-based)
+        const pdfIdentifier = `${data.name.replace(/\s+/g, '_')}_${Date.now()}`;
+        
         // Prepare data to send
         const payload = {
             name: data.name,
             email: data.email,
             role: data.role,
-            scores: formattedScores
+            scores: formattedScores,
+            pdfLink: `Report generated: ${new Date().toLocaleString()}`,
+            pdfIdentifier: pdfIdentifier
         };
         
         console.log('Sending to Google Sheets:', payload);
