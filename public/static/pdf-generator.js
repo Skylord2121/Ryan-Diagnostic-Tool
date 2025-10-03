@@ -1,6 +1,47 @@
 // PDF Report Generator for Executive Growth Diagnostic
 // Navy & Gold Design Theme
 
+// Function to send assessment data to Google Sheets
+async function sendToGoogleSheets(data) {
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRHMG0D4qLw9zztX_WKTmUp2M8i__8j_3plCUGWymyzMsHagY-GEsnrWVCplc0Pk5Q/exec';
+    
+    try {
+        // Format scores for Google Sheets (just the percentages)
+        const formattedScores = {};
+        Object.keys(data.scores).forEach(category => {
+            formattedScores[category] = data.scores[category].percentage + '%';
+        });
+        
+        // Prepare data to send
+        const payload = {
+            name: data.name,
+            email: data.email,
+            role: data.role,
+            scores: formattedScores
+        };
+        
+        console.log('Sending to Google Sheets:', payload);
+        
+        // Send data to Google Apps Script
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Important for Google Apps Script
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        console.log('Google Sheets response received');
+        return true;
+        
+    } catch (error) {
+        console.error('Error sending to Google Sheets:', error);
+        // Don't stop PDF generation if Google Sheets fails
+        return false;
+    }
+}
+
 async function generateAndDownloadReport() {
     const generateBtn = document.getElementById('generate-report-btn');
     generateBtn.disabled = true;
@@ -11,6 +52,11 @@ async function generateAndDownloadReport() {
         console.log('Step 1: Getting assessment data...');
         const data = getAssessmentData();
         console.log('Assessment data retrieved:', data);
+        
+        // Send data to Google Sheets
+        console.log('Step 1.5: Sending data to Google Sheets...');
+        await sendToGoogleSheets(data);
+        console.log('Data sent to Google Sheets successfully');
         
         // Check if jsPDF is available
         if (!window.jspdf) {
