@@ -8,7 +8,7 @@ const app = new Hono()
 app.use('/api/*', cors())
 
 // Serve static files
-app.use('/static/*', serveStatic({ root: './public' }))
+app.use('/static/*', serveStatic())
 
 // Landing Page
 app.get('/', (c) => {
@@ -79,7 +79,6 @@ app.get('/', (c) => {
                             </div>
                             <h3>Gain Deep Clarity</h3>
                             <p>Understand exactly where your time and energy are going, identify blind spots that may be slowing you down, and discover how aligned your team and strategy truly are.</p>
-                            <div class="bento-badge">Most Popular</div>
                         </div>
                         
                         <!-- Medium cards -->
@@ -201,9 +200,9 @@ app.get('/', (c) => {
                 <div class="footer-content">
                     <!-- About Section -->
                     <div class="footer-section">
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div class="footer-brand">
                             <img src="/static/logo.png" alt="Ryan Joswick" class="footer-logo">
-                            <span style="font-weight: 600; font-size: 0.9375rem;">Executive Coach & Advisor</span>
+                            <span class="footer-brand-text">Executive Coach & Advisor</span>
                         </div>
                         <p>
                             Helping senior leaders break through growth barriers 
@@ -237,16 +236,13 @@ app.get('/', (c) => {
                         <h4>Connect</h4>
                         <p>Follow Ryan on social media for leadership insights and executive growth strategies.</p>
                         <div class="footer-social">
-                            <a href="https://www.linkedin.com/in/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+                            <a href="https://www.linkedin.com/in/ryanjoswick/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://twitter.com/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="Twitter">
-                                <i class="fab fa-twitter"></i>
+                            <a href="https://x.com/RyankJoswick" target="_blank" rel="noopener" class="social-icon social-icon-x" title="X (Twitter)">
+                                <img src="/static/x-icon.png" alt="X" class="x-icon">
                             </a>
-                            <a href="https://instagram.com/ryanjoswick" target="_blank" rel="noopener" class="social-icon" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="mailto:ryan@example.com" class="social-icon" title="Email">
+                            <a href="mailto:ryan@ryanjoswick.com" class="social-icon" title="Email">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -331,9 +327,9 @@ app.get('/questionnaire', (c) => {
         </header>
 
         <!-- Questionnaire Section -->
-        <section class="section section-white" style="padding: 4rem 0;">
+        <section class="section section-white" style="padding: 2.5rem 0;">
             <div class="container">
-                <div class="card" style="max-width: 900px; margin: 0 auto;">
+                <div class="card" style="max-width: 900px; margin: 0 auto; padding: 2rem;">
                     <div id="questionnaire-app">
                         <!-- Progress Bar -->
                         <div class="progress-bar">

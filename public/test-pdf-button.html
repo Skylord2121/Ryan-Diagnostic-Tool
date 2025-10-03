@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PDF Download</title>
+    <style>
+        body {
+            font-family: system-ui;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .console {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Download Test</h1>
+    
+    <button onclick="testWithRealData()">Test with Sample Data</button>
+    
+    <div id="console" class="console">Waiting for test...</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="/static/questionnaire.js"></script>
+    <script src="/static/pdf-generator.js"></script>
+    
+    <script>
+        const consoleEl = document.getElementById('console');
+        
+        function log(msg) {
+            console.log(msg);
+            consoleEl.textContent += msg + '\n';
+        }
+        
+        function testWithRealData() {
+            consoleEl.textContent = 'Starting test...\n';
+            
+            // Set up fake assessment data
+            log('Setting up sample data...');
+            window.responses = {
+                name: 'Test User',
+                email: 'test@example.com',
+                role: 'CEO'
+            };
+            
+            // Add sample question responses
+            for (let i = 2; i <= 25; i++) {
+                const category = ['Leadership & Team Alignment', 'Time & Energy', 'Talent & Retention', 'EQ & Blind Spots', 'Growth & Strategy', 'Personal Fulfillment & Purpose'][Math.floor((i - 2) / 4)];
+                window.responses[`question-${i}`] = {
+                    category: category,
+                    question: `Question ${i}`,
+                    value: Math.floor(Math.random() * 4) + 1
+                };
+            }
+            
+            log('Sample data ready');
+            log('Calling generateAndDownloadReport()...');
+            
+            try {
+                generateAndDownloadReport();
+                log('Function called successfully');
+            } catch (error) {
+                log('ERROR: ' + error.message);
+                log('Stack: ' + error.stack);
+            }
+        }
+        
+        // Check if functions are available
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                log('Checking if functions are loaded...');
+                log('jsPDF available: ' + (!!window.jspdf));
+                log('generateAndDownloadReport available: ' + (typeof generateAndDownloadReport === 'function'));
+                log('getAssessmentData available: ' + (typeof getAssessmentData === 'function'));
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

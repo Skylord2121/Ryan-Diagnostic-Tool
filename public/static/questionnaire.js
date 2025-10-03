@@ -58,12 +58,52 @@ const questionCategories = [
     }
 ];
 
-// Answer options for most questions
-const standardAnswers = [
+// Answer options for frequency questions (how often)
+const frequencyAnswers = [
     { value: 1, text: "Never" },
     { value: 2, text: "Rarely" },
     { value: 3, text: "Often" },
     { value: 4, text: "Always" }
+];
+
+// Answer options for clarity/alignment questions (how clearly, how aligned)
+const clarityAnswers = [
+    { value: 1, text: "Not at all clear" },
+    { value: 2, text: "Somewhat unclear" },
+    { value: 3, text: "Mostly clear" },
+    { value: 4, text: "Completely clear" }
+];
+
+// Answer options for confidence questions (how confident)
+const confidenceAnswers = [
+    { value: 1, text: "Not confident" },
+    { value: 2, text: "Somewhat confident" },
+    { value: 3, text: "Confident" },
+    { value: 4, text: "Very confident" }
+];
+
+// Answer options for effectiveness questions (how effective, how well)
+const effectivenessAnswers = [
+    { value: 1, text: "Not effective" },
+    { value: 2, text: "Somewhat effective" },
+    { value: 3, text: "Effective" },
+    { value: 4, text: "Very effective" }
+];
+
+// Answer options for degree/extent questions (how much, how aware, how composed)
+const degreeAnswers = [
+    { value: 1, text: "Not at all" },
+    { value: 2, text: "Somewhat" },
+    { value: 3, text: "Quite a bit" },
+    { value: 4, text: "Extremely" }
+];
+
+// Answer options for repeatability/consistency questions
+const repeatabilityAnswers = [
+    { value: 1, text: "Not repeatable" },
+    { value: 2, text: "Somewhat repeatable" },
+    { value: 3, text: "Mostly repeatable" },
+    { value: 4, text: "Highly repeatable" }
 ];
 
 // Special answer options for specific questions
@@ -79,7 +119,30 @@ const specialAnswers = {
         { value: 2, text: "Multiple significant challenges" },
         { value: 3, text: "A few key challenges we're addressing" },
         { value: 4, text: "Minor obstacles, mostly on track" }
-    ]
+    ],
+    // Clarity questions
+    "How clearly does your team understand what success looks like in their roles?": clarityAnswers,
+    "How aligned is your leadership team on the company's top priorities?": clarityAnswers,
+    // Confidence questions
+    "How confident are you that your best performers will stay in the next 12 months?": confidenceAnswers,
+    "How confident are you that your current sales process can scale over the next 12–18 months?": confidenceAnswers,
+    "How confident are you in the long-term vision you're building toward?": confidenceAnswers,
+    // Effectiveness questions
+    "How effective is your onboarding at getting new hires productive quickly?": effectivenessAnswers,
+    "How well does your current incentive plan reward the right outcomes versus the wrong behaviors?": effectivenessAnswers,
+    "How effective are you at resolving conflict between team members or departments?": effectivenessAnswers,
+    "How well does your team articulate your company's unique value in the sales process?": effectivenessAnswers,
+    // Degree/extent questions
+    "How composed are you under stress or conflict in high-stakes situations?": degreeAnswers,
+    "How aware are you of how your words and actions affect others?": degreeAnswers,
+    "How strongly do you feel a sense of purpose in your current role?": degreeAnswers,
+    "How much do you feel you are playing to your strengths in your daily work?": degreeAnswers,
+    "How fulfilled are you outside of work in areas like family, health, and personal growth?": degreeAnswers,
+    // Repeatability questions
+    "How repeatable is your customer acquisition process today?": repeatabilityAnswers,
+    // Consistency/frequency questions (using frequency answers)
+    "How consistently are company decisions communicated and reinforced across the org?": frequencyAnswers,
+    "How consistently are you developing people for future leadership roles?": frequencyAnswers
 };
 
 // Global state
@@ -104,7 +167,7 @@ function initializeQuestionnaire() {
                 id: questionIndex,
                 category: category.category,
                 question: question,
-                answers: specialAnswers[question] || standardAnswers
+                answers: specialAnswers[question] || frequencyAnswers
             });
             questionIndex++;
         });

@@ -8,11 +8,25 @@ async function generateAndDownloadReport() {
     
     try {
         // Get assessment data
+        console.log('Step 1: Getting assessment data...');
         const data = getAssessmentData();
+        console.log('Assessment data retrieved:', data);
+        
+        // Check if jsPDF is available
+        if (!window.jspdf) {
+            throw new Error('jsPDF library not loaded');
+        }
         
         // Create PDF using jsPDF
+        console.log('Step 2: Creating PDF document...');
         const { jsPDF } = window.jspdf;
-        const doc = new jsPDF('p', 'mm', 'letter');
+        const doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'letter'
+        });
+        
+        console.log('Step 3: PDF document created');
         
         // Navy and gold colors
         const navy = [10, 22, 40];
@@ -27,24 +41,59 @@ async function generateAndDownloadReport() {
         const pageHeight = 279.4;
         const margin = 20;
         
+        console.log('Step 4: Starting page generation...');
+        
         // ============ PAGE 1: COVER ============
-        generateCoverPage(doc, data, navy, gold, white, pageWidth, pageHeight, margin);
+        try {
+            console.log('Step 5: Generating cover page...');
+            generateCoverPage(doc, data, navy, gold, white, grayText, pageWidth, pageHeight, margin);
+            console.log('Cover page complete');
+        } catch (err) {
+            console.error('Error in cover page:', err);
+            throw err;
+        }
         
         // ============ PAGE 2: RESULTS ============
-        doc.addPage();
-        generateResultsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin);
+        try {
+            console.log('Step 6: Generating results page...');
+            doc.addPage();
+            generateResultsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin);
+            console.log('Results page complete');
+        } catch (err) {
+            console.error('Error in results page:', err);
+            throw err;
+        }
         
         // ============ PAGE 3: ACTION STEPS ============
-        doc.addPage();
-        generateActionStepsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin);
+        try {
+            console.log('Step 7: Generating action steps page...');
+            doc.addPage();
+            generateActionStepsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin);
+            console.log('Action steps page complete');
+        } catch (err) {
+            console.error('Error in action steps page:', err);
+            throw err;
+        }
         
         // ============ PAGE 4: NEXT STEPS WITH RYAN ============
-        doc.addPage();
-        generateNextStepsPage(doc, data, navy, gold, white, grayText, pageWidth, pageHeight, margin);
+        try {
+            console.log('Step 8: Generating next steps page...');
+            doc.addPage();
+            generateNextStepsPage(doc, data, navy, navyMedium, gold, white, grayText, pageWidth, pageHeight, margin);
+            console.log('Next steps page complete');
+        } catch (err) {
+            console.error('Error in next steps page:', err);
+            throw err;
+        }
         
         // Save PDF
+        console.log('Step 9: Saving PDF to device...');
         const filename = `Executive-Diagnostic-Report-${data.name.replace(/\s+/g, '-')}.pdf`;
+        
+        // Use save method which triggers browser download
         doc.save(filename);
+        
+        console.log('Step 10: PDF download triggered successfully!');
         
         // Update UI
         generateBtn.innerHTML = '<i class="fas fa-check-circle"></i> Report Downloaded!';
@@ -59,7 +108,7 @@ async function generateAndDownloadReport() {
                 <i class="fas fa-check-circle"></i> Report Downloaded Successfully!
             </h4>
             <p style="margin-bottom: 1rem;">
-                Your personalized Executive Growth Diagnostic report has been downloaded.
+                Your personalized Executive Growth Diagnostic report has been downloaded to your device.
             </p>
             <p style="margin-bottom: 0; font-weight: 600;">
                 Ready to take the next step? Book your complimentary 15-minute session with Ryan.
@@ -68,14 +117,21 @@ async function generateAndDownloadReport() {
         generateBtn.parentNode.appendChild(successMsg);
         
     } catch (error) {
-        console.error('Error generating PDF:', error);
+        console.error('❌ PDF Generation Error:', error);
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+        
         generateBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please Try Again';
         generateBtn.disabled = false;
-        alert('There was an error generating your report. Please try again.');
+        
+        // Show detailed error to user
+        alert(`Error generating PDF: ${error.message}\n\nPlease check the browser console (F12) for more details.`);
     }
 }
 
-function generateCoverPage(doc, data, navy, gold, white, pageWidth, pageHeight, margin) {
+function generateCoverPage(doc, data, navy, gold, white, grayText, pageWidth, pageHeight, margin) {
+    console.log('Cover page: Drawing background...');
+    
     // Navy background
     doc.setFillColor(...navy);
     doc.rect(0, 0, pageWidth, pageHeight, 'F');
@@ -84,22 +140,24 @@ function generateCoverPage(doc, data, navy, gold, white, pageWidth, pageHeight, 
     doc.setFillColor(...gold);
     doc.rect(0, 0, pageWidth, 8, 'F');
     
+    console.log('Cover page: Drawing content area...');
+    
     // White content area
     const contentY = 60;
     const contentHeight = 160;
     doc.setFillColor(...white);
     doc.roundedRect(margin, contentY, pageWidth - 2 * margin, contentHeight, 5, 5, 'F');
     
+    console.log('Cover page: Adding text...');
+    
     // Title
     doc.setTextColor(...navy);
     doc.setFontSize(32);
     doc.setFont('helvetica', 'bold');
-    const title = 'Executive Growth';
-    doc.text(title, pageWidth / 2, contentY + 30, { align: 'center' });
+    doc.text('Executive Growth', pageWidth / 2, contentY + 30, { align: 'center' });
     
     doc.setFontSize(28);
-    const subtitle = 'Diagnostic Results';
-    doc.text(subtitle, pageWidth / 2, contentY + 45, { align: 'center' });
+    doc.text('Diagnostic Results', pageWidth / 2, contentY + 45, { align: 'center' });
     
     // Gold divider line
     doc.setFillColor(...gold);
@@ -108,7 +166,6 @@ function generateCoverPage(doc, data, navy, gold, white, pageWidth, pageHeight, 
     // Prepared for
     doc.setFontSize(14);
     doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...navy);
     doc.text('Prepared for:', pageWidth / 2, contentY + 75, { align: 'center' });
     
     doc.setFontSize(22);
@@ -138,9 +195,13 @@ function generateCoverPage(doc, data, navy, gold, white, pageWidth, pageHeight, 
     doc.text('Ryan Joswick', pageWidth / 2, pageHeight - 20, { align: 'center' });
     doc.setFont('helvetica', 'normal');
     doc.text('Executive Coach & Advisor', pageWidth / 2, pageHeight - 13, { align: 'center' });
+    
+    console.log('Cover page: Complete');
 }
 
 function generateResultsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin) {
+    console.log('Results page: Starting...');
+    
     // Header
     doc.setFillColor(...navy);
     doc.rect(0, 0, pageWidth, 25, 'F');
@@ -154,9 +215,10 @@ function generateResultsPage(doc, data, navy, navyMedium, gold, blue, white, gra
     doc.setFillColor(...gold);
     doc.rect(0, 25, pageWidth, 2, 'F');
     
-    let yPos = 45;
     const scores = data.scores;
     const categories = Object.keys(scores);
+    
+    console.log('Results page: Processing categories...');
     
     // Calculate layout
     const categoriesPerColumn = 3;
@@ -200,29 +262,35 @@ function generateResultsPage(doc, data, navy, navyMedium, gold, blue, white, gra
         }
         doc.roundedRect(x + 5, barY, fillWidth, 6, 2, 2, 'F');
         
-        // Score text
+        // Score text - improved spacing and readability
         doc.setFontSize(16);
         doc.setFont('helvetica', 'bold');
+        doc.setTextColor(...navy);
         doc.text(`${score.percentage}%`, x + 5, barY + 18);
         
-        doc.setFontSize(10);
+        // Level text on separate line with proper spacing
+        doc.setFontSize(9);
         doc.setFont('helvetica', 'normal');
         doc.setTextColor(...grayText);
-        doc.text(score.level, x + 5 + doc.getTextWidth(`${score.percentage}%`) + 3, barY + 18);
+        doc.text(score.level, x + 5, barY + 26);
         
-        // Brief insight
+        // Brief insight with better spacing
         doc.setFontSize(8);
         doc.setTextColor(...navyMedium);
         const insight = getInsight(category, score.level);
         const insightLines = doc.splitTextToSize(insight, columnWidth - 10);
-        doc.text(insightLines, x + 5, barY + 28);
+        doc.text(insightLines, x + 5, barY + 35);
     });
     
     // Footer
     addFooter(doc, navy, grayText, pageWidth, pageHeight, 2);
+    
+    console.log('Results page: Complete');
 }
 
 function generateActionStepsPage(doc, data, navy, navyMedium, gold, blue, white, grayText, pageWidth, pageHeight, margin) {
+    console.log('Action steps page: Starting...');
+    
     // Header
     doc.setFillColor(...navy);
     doc.rect(0, 0, pageWidth, 25, 'F');
@@ -258,38 +326,43 @@ function generateActionStepsPage(doc, data, navy, navyMedium, gold, blue, white,
         doc.setFont('helvetica', 'bold');
         doc.text(`${index + 1}`, margin + 5, yPos + 5, { align: 'center' });
         
-        // Action text
+        // Action title with better spacing
         doc.setTextColor(...navy);
-        doc.setFontSize(11);
+        doc.setFontSize(12);
         doc.setFont('helvetica', 'bold');
         doc.text(action.title, margin + 15, yPos + 5);
         
-        yPos += 8;
+        yPos += 10; // Increased spacing between title and description
         
+        // Action description with proper line height
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
         doc.setTextColor(...navyMedium);
         const actionLines = doc.splitTextToSize(action.description, pageWidth - 2 * margin - 15);
         doc.text(actionLines, margin + 15, yPos);
         
-        yPos += (actionLines.length * 5) + 12;
+        yPos += (actionLines.length * 5.5) + 15; // Improved spacing calculation
         
-        // Separator line
+        // Separator line with more space
         if (index < actions.length - 1) {
             doc.setDrawColor(226, 232, 240);
             doc.setLineWidth(0.5);
-            doc.line(margin, yPos - 5, pageWidth - margin, yPos - 5);
+            doc.line(margin, yPos - 8, pageWidth - margin, yPos - 8);
         }
     });
     
     // Footer
     addFooter(doc, navy, grayText, pageWidth, pageHeight, 3);
+    
+    console.log('Action steps page: Complete');
 }
 
-function generateNextStepsPage(doc, data, navy, gold, white, grayText, pageWidth, pageHeight, margin) {
-    // Navy background for top section
+function generateNextStepsPage(doc, data, navy, navyMedium, gold, white, grayText, pageWidth, pageHeight, margin) {
+    console.log('Next steps page: Starting...');
+    
+    // Navy background for top section - taller for better balance
     doc.setFillColor(...navy);
-    doc.rect(0, 0, pageWidth, 120, 'F');
+    doc.rect(0, 0, pageWidth, 85, 'F');
     
     // Gold accent bar
     doc.setFillColor(...gold);
@@ -297,39 +370,68 @@ function generateNextStepsPage(doc, data, navy, gold, white, grayText, pageWidth
     
     // Title
     doc.setTextColor(...white);
-    doc.setFontSize(24);
+    doc.setFontSize(26);
     doc.setFont('helvetica', 'bold');
-    doc.text('Next Step with Ryan', pageWidth / 2, 35, { align: 'center' });
+    doc.text('Next Step with Ryan', pageWidth / 2, 28, { align: 'center' });
     
-    // Summary text
+    // Congratulations text - better spacing
     doc.setFontSize(11);
     doc.setFont('helvetica', 'normal');
-    const summary1 = 'You now have clarity on your strengths and blind spots,';
-    const summary2 = 'plus practical steps to get moving.';
-    const summary3 = 'This is only the starting point.';
-    doc.text(summary1, pageWidth / 2, 55, { align: 'center' });
-    doc.text(summary2, pageWidth / 2, 62, { align: 'center' });
-    doc.text(summary3, pageWidth / 2, 75, { align: 'center' });
+    doc.text('You now have clarity on your strengths and blind spots,', pageWidth / 2, 44, { align: 'center' });
+    doc.text('plus practical steps to get moving.', pageWidth / 2, 53, { align: 'center' });
     
-    // Special offer box
-    const boxY = 90;
-    const boxHeight = 25;
-    doc.setFillColor(...gold);
-    doc.roundedRect(margin, boxY, pageWidth - 2 * margin, boxHeight, 3, 3, 'F');
-    
-    doc.setTextColor(...navy);
-    doc.setFontSize(13);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Exclusive Access: 15-Minute Session with Ryan Joswick', pageWidth / 2, boxY + 12, { align: 'center' });
+    // Emphasis text
     doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('This is only the starting point.', pageWidth / 2, 66, { align: 'center' });
+    
+    // Main content area - start below navy header
+    let yPos = 100;
+    
+    // Define blue color for button
+    const blue = [37, 99, 235];
+    
+    // Clean intro text
+    doc.setFontSize(11);
     doc.setFont('helvetica', 'normal');
-    doc.text('Because you completed this diagnostic', pageWidth / 2, boxY + 19, { align: 'center' });
+    doc.setTextColor(...navyMedium);
+    doc.text('Because you completed this diagnostic, you have exclusive access', pageWidth / 2, yPos, { align: 'center' });
+    yPos += 10;
+    doc.text('to a complimentary 15-minute coaching call with Ryan.', pageWidth / 2, yPos, { align: 'center' });
     
-    // Main content area
-    let yPos = 135;
+    yPos += 20;
     
-    // Benefits section
+    // LARGE CENTERED BUTTON - Main CTA (only button on page)
+    const buttonWidth = 130;
+    const buttonHeight = 22;
+    const buttonX = (pageWidth - buttonWidth) / 2;
+    const buttonY = yPos;
+    
+    // Button background - bright blue
+    doc.setFillColor(...blue);
+    doc.roundedRect(buttonX, buttonY, buttonWidth, buttonHeight, 4, 4, 'F');
+    
+    // Button text - large and bold
     doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...white);
+    doc.text('CLICK HERE TO BOOK YOUR SESSION', pageWidth / 2, buttonY + 14, { align: 'center' });
+    
+    // Add clickable link to the button area
+    doc.link(buttonX, buttonY, buttonWidth, buttonHeight, { url: 'https://calendly.com/ryan-eclm' });
+    
+    // Helper text below button
+    yPos = buttonY + buttonHeight + 6;
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'italic');
+    doc.setTextColor(128, 128, 128); // Gray
+    doc.text('(This button is clickable)', pageWidth / 2, yPos, { align: 'center' });
+    
+    // Add spacing before benefits
+    yPos += 22;
+    
+    // Benefits section with clean layout
+    doc.setFontSize(13);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(...navy);
     doc.text('What You\'ll Get in Your Session:', margin, yPos);
@@ -343,7 +445,7 @@ function generateNextStepsPage(doc, data, navy, gold, white, grayText, pageWidth
         'Direct insight from an executive coach who\'s been there'
     ];
     
-    doc.setFontSize(11);
+    doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(...navyMedium);
     
@@ -359,41 +461,10 @@ function generateNextStepsPage(doc, data, navy, gold, white, grayText, pageWidth
         yPos += 10;
     });
     
-    yPos += 10;
-    
-    // About Ryan
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...navy);
-    doc.text('About Ryan Joswick', margin, yPos);
-    
-    yPos += 10;
-    
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...navyMedium);
-    const aboutText = 'Ryan Joswick is an Executive Coach & Advisor specializing in working with senior sales leaders. With over a decade of experience, Ryan helps executives and their teams break through growth barriers, optimize performance, and achieve sustainable results.';
-    const aboutLines = doc.splitTextToSize(aboutText, pageWidth - 2 * margin);
-    doc.text(aboutLines, margin, yPos);
-    
-    yPos += (aboutLines.length * 5) + 15;
-    
-    // CTA Box
-    doc.setFillColor(248, 250, 252);
-    doc.roundedRect(margin, yPos, pageWidth - 2 * margin, 30, 3, 3, 'F');
-    
-    doc.setFontSize(13);
-    doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...navy);
-    doc.text('Ready to Take Action?', pageWidth / 2, yPos + 12, { align: 'center' });
-    
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...navyMedium);
-    doc.text('Email ryan@example.com to book your complimentary session', pageWidth / 2, yPos + 22, { align: 'center' });
-    
     // Footer
     addFooter(doc, navy, grayText, pageWidth, pageHeight, 4);
+    
+    console.log('Next steps page: Complete');
 }
 
 function addFooter(doc, navy, grayText, pageWidth, pageHeight, pageNum) {

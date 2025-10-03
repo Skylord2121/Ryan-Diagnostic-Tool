@@ -52,6 +52,17 @@ h2 {
   letter-spacing: -0.01em;
 }
 
+/* Questionnaire specific h2 - more compact */
+#questionnaire-app h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+#questionnaire-app p {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -239,7 +250,7 @@ p {
 .card {
   background: var(--white);
   border-radius: 20px;
-  padding: 3rem;
+  padding: 2.5rem;
   box-shadow: var(--shadow-md);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(226, 232, 240, 0.5);
@@ -637,8 +648,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-decoration: none;
   border-radius: 8px;
@@ -748,11 +759,34 @@ p {
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
 }
 
+.x-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.social-icon-x:hover .x-icon {
+  filter: brightness(1) invert(0);
+}
+
 .footer-logo {
-  height: 30px;
+  height: 22px;
   width: auto;
-  margin-bottom: 0;
-  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.footer-brand-text {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: block;
 }
 
 .footer-bottom {
@@ -768,7 +802,12 @@ p {
 
 /* Form Styles */
 .form-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Questionnaire form groups - more compact */
+#questionnaire-app .form-group {
+  margin-bottom: 1.25rem;
 }
 
 .form-label {
@@ -822,7 +861,7 @@ p {
 .radio-option {
   display: flex;
   align-items: center;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
   border: 2px solid var(--gray-medium);
   border-radius: 12px;
   cursor: pointer;
@@ -924,54 +963,111 @@ p {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
   
+  /* Improved mobile header with better spacing */
   .header-content {
-    gap: 1rem;
+    gap: 0.75rem;
+    padding: 1rem 0;
   }
   
   .logo-image {
-    height: 26px;
+    height: 22px;
   }
   
-  .header-nav {
+  /* Hide navigation links on mobile, keep CTA button */
+  .nav-links {
     display: none;
   }
   
-  .btn-nav {
-    font-size: 0.8125rem;
-    padding: 0.5rem 1rem;
+  .header-nav {
+    gap: 0.75rem;
+    justify-content: flex-end;
   }
   
+  /* Better mobile button styling - smaller to prevent bleeding */
+  .btn-nav {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  
+  /* Footer brand centered on mobile */
+  .footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    height: 24px;
+  }
+  
+  .footer-brand-text {
+    text-align: center;
+  }
+  
+  /* Center social icons on mobile */
+  .footer-social {
+    justify-content: center;
+  }
+  
+  /* Hero section with improved typography */
   .hero {
-    padding: 6rem 0 4rem;
+    padding: 5rem 0 3.5rem;
   }
   
   .hero h1 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.25rem;
   }
   
   .hero-subtext {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+    margin-bottom: 2rem;
   }
   
+  /* Improved typography with better kerning */
   h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
   
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
+  }
+  
+  /* Section spacing */
   .section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
   }
   
+  /* Card improvements */
   .card {
-    padding: 2rem;
+    padding: 1.75rem;
   }
   
+  /* Steps layout */
   .steps {
     gap: 2rem;
   }
@@ -984,34 +1080,131 @@ p {
   
   .step-number {
     align-self: center;
+    margin-bottom: 1rem;
   }
   
+  /* Button improvements */
   .btn {
     padding: 0.875rem 2rem;
     font-size: 1rem;
+    letter-spacing: 0.01em;
   }
   
-  .btn-nav {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
+  /* Bento grid mobile layout */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .bento-tile {
+    min-height: 180px;
+  }
+  
+  /* Footer improvements */
+  .footer {
+    padding: 3rem 0 2rem;
+  }
+  
+  .footer-content {
+    text-align: center;
+  }
+  
+  .footer-brand {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Extra small mobile adjustments */
+  .header-content {
+    padding: 0.875rem 0;
+  }
+  
+  .logo-image {
+    height: 20px;
+  }
+  
+  .btn-nav {
+    font-size: 0.6875rem;
+    padding: 0.4375rem 0.625rem;
+  }
+  
+  .footer-logo {
+    height: 22px;
+  }
+  
+  .footer-brand-text {
+    text-align: center;
+  }
+  
+  /* Center social icons on small mobile */
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+  
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   
   .hero-subtext {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
     font-size: 1.125rem;
+  }
+  
+  p {
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
   }
   
   .card {
     padding: 1.5rem;
   }
   
-  .logo-image {
-    height: 32px;
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .btn {
+    font-size: 0.9375rem;
+    padding: 0.8125rem 1.75rem;
+  }
+  
+  /* Questionnaire mobile improvements */
+  .question-container {
+    padding: 1.5rem;
+  }
+  
+  .radio-option {
+    padding: 0.875rem;
+    font-size: 0.9375rem;
   }
 }
 
