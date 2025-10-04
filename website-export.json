@@ -1,0 +1,858 @@
+{
+  "project": {
+    "name": "Executive Growth Diagnostic",
+    "description": "A comprehensive diagnostic tool for senior executives to identify strengths, blind spots, and growth opportunities",
+    "author": "Ryan Joswick",
+    "version": "1.0.0",
+    "repository": "https://github.com/Skylord2121/Ryan-Diagnostic-Tool",
+    "website": "https://3000-i9abz22ylya4ldteflgsz-6532622b.e2b.dev"
+  },
+  "branding": {
+    "title": "Executive Growth Diagnostic",
+    "tagline": "Find Out Where You Stand Today",
+    "logo": "/static/logo.png",
+    "colors": {
+      "primary": {
+        "navy": "#0A1628",
+        "navyMedium": "#1E293B",
+        "blue": "#2563EB",
+        "gold": "#F59E0B"
+      },
+      "secondary": {
+        "white": "#FFFFFF",
+        "grayLight": "#F8FAFC",
+        "grayText": "#64748B"
+      }
+    },
+    "fonts": {
+      "primary": "'Inter', sans-serif",
+      "weights": ["400", "500", "600", "700"]
+    }
+  },
+  "navigation": {
+    "header": {
+      "logo": {
+        "src": "/static/logo.png",
+        "alt": "Ryan Joswick",
+        "href": "/"
+      },
+      "links": [
+        {
+          "text": "Why This Matters",
+          "href": "#why"
+        },
+        {
+          "text": "How It Works",
+          "href": "#how"
+        },
+        {
+          "text": "About Ryan",
+          "href": "#about"
+        }
+      ],
+      "cta": {
+        "text": "Take Assessment",
+        "icon": "fas fa-clipboard-check",
+        "href": "/questionnaire"
+      }
+    },
+    "footer": {
+      "brand": {
+        "logo": "/static/logo.png",
+        "name": "Ryan Joswick",
+        "tagline": "Executive Coach & Advisor",
+        "description": "Helping senior executives and leadership teams achieve sustainable growth through clarity, alignment, and actionable strategy."
+      },
+      "sections": [
+        {
+          "title": "Quick Links",
+          "links": [
+            {
+              "text": "Home",
+              "icon": "fas fa-home",
+              "href": "#hero"
+            },
+            {
+              "text": "Take Assessment",
+              "icon": "fas fa-clipboard-check",
+              "href": "/questionnaire"
+            },
+            {
+              "text": "About Ryan",
+              "icon": "fas fa-info-circle",
+              "href": "#about"
+            }
+          ]
+        },
+        {
+          "title": "Services",
+          "links": [
+            {
+              "text": "Executive Coaching",
+              "icon": "fas fa-user-tie",
+              "href": "https://ryanjoswick.com/executive-coaching/",
+              "external": true
+            },
+            {
+              "text": "Training and Speaking",
+              "icon": "fas fa-microphone",
+              "href": "https://ryanjoswick.com/training-speaking/",
+              "external": true
+            },
+            {
+              "text": "Consulting and Advising",
+              "icon": "fas fa-handshake",
+              "href": "https://ryanjoswick.com/consulting-advising/",
+              "external": true
+            }
+          ]
+        },
+        {
+          "title": "Connect",
+          "description": "Follow Ryan on social media for leadership insights and executive growth strategies.",
+          "social": [
+            {
+              "platform": "LinkedIn",
+              "icon": "fab fa-linkedin-in",
+              "href": "https://www.linkedin.com/in/ryanjoswick/"
+            },
+            {
+              "platform": "X (Twitter)",
+              "icon": "custom",
+              "customIcon": "/static/x-icon.png",
+              "href": "https://x.com/RyankJoswick"
+            },
+            {
+              "platform": "Email",
+              "icon": "fas fa-envelope",
+              "href": "mailto:ryan@ryanjoswick.com"
+            }
+          ]
+        }
+      ],
+      "copyright": "© 2025 Ryan Joswick. All rights reserved."
+    }
+  },
+  "pages": {
+    "home": {
+      "id": "/",
+      "title": "Executive Growth Diagnostic - Find Out Where You Stand Today",
+      "metaDescription": "A comprehensive diagnostic tool for senior executives to identify strengths, blind spots, and growth opportunities.",
+      "sections": [
+        {
+          "id": "hero",
+          "type": "hero",
+          "heading": "Find Out Where You Stand Today",
+          "subtext": "Every executive faces challenges. Some are clear. Others hide in plain sight. This tool helps you see what is working, what is not, and what to do about it.",
+          "cta": {
+            "text": "Start Your Diagnostic",
+            "icon": "fas fa-play-circle",
+            "href": "/questionnaire"
+          }
+        },
+        {
+          "id": "why",
+          "type": "bento-grid",
+          "heading": "Why This Matters",
+          "subheading": "Every executive faces challenges. This diagnostic helps you identify what's working, what's not, and gives you a clear path forward.",
+          "cards": [
+            {
+              "size": "large",
+              "icon": "fas fa-chart-line",
+              "title": "Gain Deep Clarity",
+              "description": "Understand exactly where your time and energy are going, identify blind spots that may be slowing you down, and discover how aligned your team and strategy truly are."
+            },
+            {
+              "size": "medium",
+              "icon": "fas fa-bullseye",
+              "title": "Actionable Insights",
+              "description": "Walk away with specific, implementable actions based on your unique situation and challenges."
+            },
+            {
+              "size": "medium",
+              "icon": "fas fa-user-check",
+              "title": "Personalized Report",
+              "description": "Get a custom 4-page report with your scores, insights, and recommended next steps."
+            },
+            {
+              "size": "medium",
+              "icon": "fas fa-clock",
+              "title": "Quick & Easy",
+              "description": "Takes just 8-10 minutes to complete. No fluff, just focused questions that matter."
+            },
+            {
+              "size": "medium",
+              "accent": true,
+              "icon": "fas fa-comments",
+              "title": "Free 20-Minute Session",
+              "description": "Get personalized guidance from Ryan to understand your results and identify your next steps."
+            }
+          ]
+        },
+        {
+          "id": "how",
+          "type": "process-steps",
+          "heading": "How It Works",
+          "subheading": "A simple, three-step process to gain clarity on your leadership and growth.",
+          "steps": [
+            {
+              "number": 1,
+              "icon": "fas fa-clipboard-list",
+              "title": "Take the Assessment",
+              "description": "Answer 26 focused questions across 6 key areas: Leadership Alignment, Time & Energy, Talent & Retention, EQ & Blind Spots, Growth & Strategy, and Personal Fulfillment."
+            },
+            {
+              "number": 2,
+              "icon": "fas fa-file-pdf",
+              "title": "Get Your Report",
+              "description": "Receive an instant 4-page personalized PDF with your scores, key insights, and specific action steps tailored to your situation."
+            },
+            {
+              "number": 3,
+              "icon": "fas fa-user-tie",
+              "title": "Book Your Session",
+              "description": "Schedule a complimentary 20-minute call with Ryan to discuss your results and get expert guidance on your next steps."
+            }
+          ]
+        },
+        {
+          "id": "about",
+          "type": "about",
+          "heading": "About Ryan Joswick",
+          "image": "/static/ryan-photo.jpg",
+          "content": [
+            "Ryan Joswick is an Executive Coach & Advisor who specializes in working with senior sales leaders and executive teams. With over a decade of experience in leadership development and organizational growth, Ryan has helped hundreds of executives break through growth barriers and achieve sustainable results.",
+            "His approach combines strategic clarity with practical implementation, helping leaders identify what's working, what's not, and exactly what to do about it. Ryan's work focuses on the real challenges executives face: misaligned teams, time scarcity, retention issues, blind spots, and the tension between growth and fulfillment.",
+            "This diagnostic tool is designed to give you the same clarity Ryan provides his coaching clients—a clear, honest look at where you stand today and a practical roadmap for where to go next."
+          ],
+          "cta": {
+            "text": "Start Now",
+            "href": "/questionnaire"
+          }
+        }
+      ]
+    },
+    "questionnaire": {
+      "id": "/questionnaire",
+      "title": "Executive Assessment Questionnaire",
+      "totalQuestions": 26,
+      "sections": [
+        {
+          "id": "contact",
+          "type": "form",
+          "heading": "Let's Get Started",
+          "description": "Enter your information to receive your personalized diagnostic report instantly.",
+          "fields": [
+            {
+              "id": "name",
+              "type": "text",
+              "label": "Full Name",
+              "required": true,
+              "placeholder": "Enter your full name"
+            },
+            {
+              "id": "email",
+              "type": "email",
+              "label": "Email Address",
+              "required": true,
+              "placeholder": "Enter your email address"
+            }
+          ],
+          "enterKeyNavigation": true
+        },
+        {
+          "id": "role",
+          "type": "radio-group",
+          "question": "What is your current role?",
+          "options": [
+            "C-Level Executive (CEO, COO, CRO, etc.)",
+            "VP of Sales / Revenue",
+            "Director / Senior Leader",
+            "Sales Manager / Team Lead",
+            "Founder / Entrepreneur",
+            "Other"
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "id": "leadership-team-alignment",
+          "name": "Leadership & Team Alignment",
+          "questions": [
+            {
+              "id": 3,
+              "text": "How clearly does your team understand what success looks like in their roles?",
+              "answerType": "clarity",
+              "answers": [
+                {"value": 1, "text": "Not at all clear"},
+                {"value": 2, "text": "Somewhat unclear"},
+                {"value": 3, "text": "Mostly clear"},
+                {"value": 4, "text": "Completely clear"}
+              ]
+            },
+            {
+              "id": 4,
+              "text": "How often do you hold structured manager 1:1s or team cadences?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            },
+            {
+              "id": 5,
+              "text": "How aligned is your leadership team on the company's top priorities?",
+              "answerType": "clarity",
+              "answers": [
+                {"value": 1, "text": "Not at all clear"},
+                {"value": 2, "text": "Somewhat unclear"},
+                {"value": 3, "text": "Mostly clear"},
+                {"value": 4, "text": "Completely clear"}
+              ]
+            },
+            {
+              "id": 6,
+              "text": "How consistently are company decisions communicated and reinforced across the org?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "time-energy",
+          "name": "Time & Energy",
+          "questions": [
+            {
+              "id": 7,
+              "text": "How much of your week is spent in meetings and email versus strategic work?",
+              "answerType": "custom",
+              "answers": [
+                {"value": 1, "text": "80%+ meetings/email, very little strategic work"},
+                {"value": 2, "text": "60-80% meetings/email, some strategic work"},
+                {"value": 3, "text": "40-60% meetings/email, balanced approach"},
+                {"value": 4, "text": "Less than 40% meetings/email, mostly strategic work"}
+              ]
+            },
+            {
+              "id": 8,
+              "text": "How often do you protect time for long-term planning and big-picture thinking?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            },
+            {
+              "id": 9,
+              "text": "How often do you feel you have energy left for high-value priorities at the end of the week?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            },
+            {
+              "id": 10,
+              "text": "How often do you step away fully from work for family, friends, or personal recovery?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "talent-retention",
+          "name": "Talent & Retention",
+          "questions": [
+            {
+              "id": 11,
+              "text": "How confident are you that your best performers will stay in the next 12 months?",
+              "answerType": "confidence",
+              "answers": [
+                {"value": 1, "text": "Not confident"},
+                {"value": 2, "text": "Somewhat confident"},
+                {"value": 3, "text": "Confident"},
+                {"value": 4, "text": "Very confident"}
+              ]
+            },
+            {
+              "id": 12,
+              "text": "How effective is your onboarding at getting new hires productive quickly?",
+              "answerType": "effectiveness",
+              "answers": [
+                {"value": 1, "text": "Not effective"},
+                {"value": 2, "text": "Somewhat effective"},
+                {"value": 3, "text": "Effective"},
+                {"value": 4, "text": "Very effective"}
+              ]
+            },
+            {
+              "id": 13,
+              "text": "How well does your current incentive plan reward the right outcomes versus the wrong behaviors?",
+              "answerType": "effectiveness",
+              "answers": [
+                {"value": 1, "text": "Not effective"},
+                {"value": 2, "text": "Somewhat effective"},
+                {"value": 3, "text": "Effective"},
+                {"value": 4, "text": "Very effective"}
+              ]
+            },
+            {
+              "id": 14,
+              "text": "How consistently are you developing people for future leadership roles?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eq-blind-spots",
+          "name": "EQ & Blind Spots",
+          "questions": [
+            {
+              "id": 15,
+              "text": "How composed are you under stress or conflict in high-stakes situations?",
+              "answerType": "degree",
+              "answers": [
+                {"value": 1, "text": "Not at all"},
+                {"value": 2, "text": "Somewhat"},
+                {"value": 3, "text": "Quite a bit"},
+                {"value": 4, "text": "Extremely"}
+              ]
+            },
+            {
+              "id": 16,
+              "text": "How often do you actively ask for and receive feedback on your leadership or decisions?",
+              "answerType": "frequency",
+              "answers": [
+                {"value": 1, "text": "Never"},
+                {"value": 2, "text": "Rarely"},
+                {"value": 3, "text": "Often"},
+                {"value": 4, "text": "Always"}
+              ]
+            },
+            {
+              "id": 17,
+              "text": "How aware are you of how your words and actions affect others?",
+              "answerType": "degree",
+              "answers": [
+                {"value": 1, "text": "Not at all"},
+                {"value": 2, "text": "Somewhat"},
+                {"value": 3, "text": "Quite a bit"},
+                {"value": 4, "text": "Extremely"}
+              ]
+            },
+            {
+              "id": 18,
+              "text": "How effective are you at resolving conflict between team members or departments?",
+              "answerType": "effectiveness",
+              "answers": [
+                {"value": 1, "text": "Not effective"},
+                {"value": 2, "text": "Somewhat effective"},
+                {"value": 3, "text": "Effective"},
+                {"value": 4, "text": "Very effective"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "growth-strategy",
+          "name": "Growth & Strategy",
+          "questions": [
+            {
+              "id": 19,
+              "text": "How confident are you that your current sales process can scale over the next 12–18 months?",
+              "answerType": "confidence",
+              "answers": [
+                {"value": 1, "text": "Not confident"},
+                {"value": 2, "text": "Somewhat confident"},
+                {"value": 3, "text": "Confident"},
+                {"value": 4, "text": "Very confident"}
+              ]
+            },
+            {
+              "id": 20,
+              "text": "What is the biggest obstacle in hitting revenue targets right now?",
+              "answerType": "custom",
+              "answers": [
+                {"value": 1, "text": "Major systemic issues (process, team, market)"},
+                {"value": 2, "text": "Multiple significant challenges"},
+                {"value": 3, "text": "A few key challenges we're addressing"},
+                {"value": 4, "text": "Minor obstacles, mostly on track"}
+              ]
+            },
+            {
+              "id": 21,
+              "text": "How repeatable is your customer acquisition process today?",
+              "answerType": "repeatability",
+              "answers": [
+                {"value": 1, "text": "Not repeatable"},
+                {"value": 2, "text": "Somewhat repeatable"},
+                {"value": 3, "text": "Mostly repeatable"},
+                {"value": 4, "text": "Highly repeatable"}
+              ]
+            },
+            {
+              "id": 22,
+              "text": "How well does your team articulate your company's unique value in the sales process?",
+              "answerType": "effectiveness",
+              "answers": [
+                {"value": 1, "text": "Not effective"},
+                {"value": 2, "text": "Somewhat effective"},
+                {"value": 3, "text": "Effective"},
+                {"value": 4, "text": "Very effective"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "personal-fulfillment-purpose",
+          "name": "Personal Fulfillment & Purpose",
+          "questions": [
+            {
+              "id": 23,
+              "text": "How strongly do you feel a sense of purpose in your current role?",
+              "answerType": "degree",
+              "answers": [
+                {"value": 1, "text": "Not at all"},
+                {"value": 2, "text": "Somewhat"},
+                {"value": 3, "text": "Quite a bit"},
+                {"value": 4, "text": "Extremely"}
+              ]
+            },
+            {
+              "id": 24,
+              "text": "How much do you feel you are playing to your strengths in your daily work?",
+              "answerType": "degree",
+              "answers": [
+                {"value": 1, "text": "Not at all"},
+                {"value": 2, "text": "Somewhat"},
+                {"value": 3, "text": "Quite a bit"},
+                {"value": 4, "text": "Extremely"}
+              ]
+            },
+            {
+              "id": 25,
+              "text": "How confident are you in the long-term vision you're building toward?",
+              "answerType": "confidence",
+              "answers": [
+                {"value": 1, "text": "Not confident"},
+                {"value": 2, "text": "Somewhat confident"},
+                {"value": 3, "text": "Confident"},
+                {"value": 4, "text": "Very confident"}
+              ]
+            },
+            {
+              "id": 26,
+              "text": "How fulfilled are you outside of work in areas like family, health, and personal growth?",
+              "answerType": "degree",
+              "answers": [
+                {"value": 1, "text": "Not at all"},
+                {"value": 2, "text": "Somewhat"},
+                {"value": 3, "text": "Quite a bit"},
+                {"value": 4, "text": "Extremely"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "pdfReport": {
+    "title": "Executive Growth Diagnostic Report",
+    "pages": 4,
+    "theme": {
+      "primaryColor": "Navy (#0A1628)",
+      "accentColor": "Gold (#F59E0B)",
+      "secondaryColor": "Blue (#2563EB)"
+    },
+    "structure": [
+      {
+        "page": 1,
+        "type": "cover",
+        "sections": [
+          {
+            "type": "header",
+            "content": "Executive Growth Diagnostic"
+          },
+          {
+            "type": "personalization",
+            "content": "Personalized Report for {name}"
+          },
+          {
+            "type": "intro",
+            "content": "This assessment evaluates your current position across six critical areas of executive leadership...",
+            "bullets": [
+              "Leadership & Team Alignment",
+              "Time & Energy Management",
+              "Talent & Retention",
+              "Emotional Intelligence & Blind Spots",
+              "Growth & Strategy",
+              "Personal Fulfillment & Purpose"
+            ]
+          },
+          {
+            "type": "cta",
+            "content": "Ready to take the next step? Book your complimentary 20-minute session with Ryan."
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "type": "scores",
+        "sections": [
+          {
+            "type": "header",
+            "content": "Your Leadership Snapshot"
+          },
+          {
+            "type": "scoreCards",
+            "categories": [
+              "Leadership & Team Alignment",
+              "Time & Energy",
+              "Talent & Retention",
+              "EQ & Blind Spots",
+              "Growth & Strategy",
+              "Personal Fulfillment & Purpose"
+            ],
+            "scoreFormat": {
+              "percentage": true,
+              "level": ["Low", "Medium", "High"],
+              "thresholds": {
+                "high": 75,
+                "medium": 50,
+                "low": 0
+              }
+            }
+          },
+          {
+            "type": "interpretation",
+            "levels": {
+              "High (75%+)": "You're performing well in this area. Continue building on this strength.",
+              "Medium (50-74%)": "You have a solid foundation, but there's room for improvement.",
+              "Low (Below 50%)": "This area needs attention. Prioritize action here for the greatest impact."
+            }
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "type": "actionSteps",
+        "sections": [
+          {
+            "type": "header",
+            "content": "Your Next Steps"
+          },
+          {
+            "type": "intro",
+            "content": "Based on your assessment, here are practical steps to address your key growth areas:"
+          },
+          {
+            "type": "actionList",
+            "format": "numbered",
+            "dynamicContent": "Generated based on lowest scoring categories",
+            "maxSteps": 3
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "type": "nextSteps",
+        "sections": [
+          {
+            "type": "header",
+            "content": "Next Step with Ryan"
+          },
+          {
+            "type": "congratulations",
+            "content": "You now have clarity on your strengths and blind spots, plus practical steps to get moving. This is only the starting point."
+          },
+          {
+            "type": "exclusiveAccess",
+            "content": "Because you completed this diagnostic, you have exclusive access to a complimentary 20-minute coaching call with Ryan."
+          },
+          {
+            "type": "cta",
+            "buttonText": "CLICK HERE TO BOOK YOUR SESSION",
+            "link": "https://calendly.com/ryan-eclm",
+            "clickable": true
+          },
+          {
+            "type": "benefits",
+            "title": "What You'll Get in Your Session:",
+            "items": [
+              "Personalized review of your diagnostic results",
+              "Specific guidance on your top 2-3 priority areas",
+              "Clear next steps tailored to your situation",
+              "Direct insight from an executive coach who's been there"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "integrations": {
+    "googleSheets": {
+      "enabled": true,
+      "purpose": "Lead capture and tracking",
+      "scriptUrl": "https://script.google.com/macros/s/AKfycbwRHMG0D4qLw9zztX_WKTmUp2M8i__8j_3plCUGWymyzMsHagY-GEsnrWVCplc0Pk5Q/exec",
+      "dataCapture": {
+        "fields": [
+          "Timestamp",
+          "Name",
+          "Email",
+          "Role",
+          "Leadership & Team Alignment",
+          "Time & Energy",
+          "Talent & Retention",
+          "EQ & Blind Spots",
+          "Growth & Strategy",
+          "Personal Fulfillment & Purpose",
+          "PDF Link"
+        ],
+        "format": "Scores sent as percentages with % symbol"
+      }
+    },
+    "calendly": {
+      "enabled": true,
+      "purpose": "Booking 20-minute coaching sessions",
+      "url": "https://calendly.com/ryan-eclm",
+      "embedLocations": [
+        "PDF Page 4 - Clickable button",
+        "Results page (future implementation)"
+      ]
+    }
+  },
+  "technicalStack": {
+    "framework": "Hono",
+    "runtime": "Cloudflare Workers/Pages",
+    "language": "TypeScript",
+    "styling": "CSS (Custom)",
+    "fonts": "Inter (Google Fonts)",
+    "icons": "Font Awesome 6.4.0",
+    "pdfGeneration": "jsPDF 2.5.1",
+    "deployment": {
+      "platform": "Cloudflare Pages",
+      "branch": "main",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist"
+    },
+    "dependencies": {
+      "hono": "^4.0.0",
+      "@hono/vite-cloudflare-pages": "^0.4.2",
+      "vite": "^5.0.0",
+      "wrangler": "^3.78.0"
+    }
+  },
+  "features": {
+    "responsive": {
+      "enabled": true,
+      "breakpoints": {
+        "mobile": "480px",
+        "tablet": "768px",
+        "desktop": "1024px"
+      }
+    },
+    "accessibility": {
+      "semanticHTML": true,
+      "ariaLabels": true,
+      "keyboardNavigation": true,
+      "enterKeySupport": {
+        "contactForm": true,
+        "description": "Name field: Enter moves to Email | Email field: Enter submits form"
+      }
+    },
+    "animations": {
+      "fadeIn": "Hero content",
+      "slideUp": "Section content",
+      "scaleIn": "Success icons"
+    },
+    "smoothScrolling": {
+      "enabled": true,
+      "anchors": ["#hero", "#why", "#how", "#about"]
+    }
+  },
+  "analytics": {
+    "recommended": [
+      {
+        "platform": "Google Analytics",
+        "purpose": "Track page views, user behavior, conversion rates"
+      },
+      {
+        "platform": "Hotjar",
+        "purpose": "Heatmaps, session recordings, user feedback"
+      },
+      {
+        "platform": "Cloudflare Web Analytics",
+        "purpose": "Privacy-focused analytics, no cookies required"
+      }
+    ],
+    "keyMetrics": [
+      "Assessment completion rate",
+      "PDF download rate",
+      "Calendly booking conversion",
+      "Time spent on questionnaire",
+      "Drop-off points in assessment"
+    ]
+  },
+  "futureEnhancements": {
+    "suggested": [
+      {
+        "feature": "Email follow-up sequence",
+        "description": "Automated email series after PDF download to nurture leads"
+      },
+      {
+        "feature": "Results comparison",
+        "description": "Show how user's scores compare to industry benchmarks"
+      },
+      {
+        "feature": "Social sharing",
+        "description": "Allow users to share their completion on LinkedIn"
+      },
+      {
+        "feature": "Save & resume",
+        "description": "Allow users to save progress and complete assessment later"
+      },
+      {
+        "feature": "Multi-language support",
+        "description": "Translate assessment into other languages"
+      },
+      {
+        "feature": "Video explainers",
+        "description": "Add short video explanations for each category"
+      },
+      {
+        "feature": "Advanced reporting",
+        "description": "More detailed insights and personalized recommendations"
+      }
+    ]
+  },
+  "metadata": {
+    "exportDate": "2025-01-15",
+    "exportVersion": "1.0.0",
+    "totalFiles": 8,
+    "linesOfCode": "~3500",
+    "lastCommit": "ca6b25f",
+    "githubRepo": "https://github.com/Skylord2121/Ryan-Diagnostic-Tool"
+  }
+}
